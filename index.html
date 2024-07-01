@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Empleados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Empleados</h1>
+        <form id="employeeForm">
+            <input type="hidden" id="employeeId">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="apellido" placeholder="Apellido" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="telefono" placeholder="Teléfono" required>
+            <input type="text" id="direccion" placeholder="Dirección" required>
+            <button type="submit">Guardar</button>
+        </form>
+        <div id="employeeList"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
