@@ -30,14 +30,14 @@ input, button {
 }
 
 button {
-    background-color: #28a745;
+    background-color: #283fa7;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #f0850a;
 }
 
 #employeeList {
@@ -63,4 +63,29 @@ button:hover {
 
 .employee button:hover {
     background-color: #c82333;
+}
+
+.search-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.search-container input[type="text"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-container input[type="text"]::placeholder {
+    color: #999;
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #007BFF;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
 }

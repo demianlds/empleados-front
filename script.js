@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const employeeForm = document.getElementById("employeeForm");
     const employeeList = document.getElementById("employeeList");
     const employeeId = document.getElementById("employeeId");
+    const searchInput = document.getElementById("searchInput");
 
     // Fetch employees on page load
     fetchEmployees();
@@ -25,10 +26,24 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    function fetchEmployees() {
+    searchInput.addEventListener("input", function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        fetchEmployees(searchTerm);
+    });
+
+    function fetchEmployees(searchTerm = "") {
         fetch(apiUrl)
             .then(response => response.json())
-            .then(data => renderEmployees(data))
+            .then(data => {
+                const filteredData = data.filter(employee => 
+                    employee.nombre.toLowerCase().includes(searchTerm) ||
+                    employee.apellido.toLowerCase().includes(searchTerm) ||
+                    employee.email.toLowerCase().includes(searchTerm) ||
+                    employee.telefono.toLowerCase().includes(searchTerm) ||
+                    employee.direccion.toLowerCase().includes(searchTerm)
+                );
+                renderEmployees(filteredData);
+            })
             .catch(error => console.error("Error fetching employees:", error));
     }
 
